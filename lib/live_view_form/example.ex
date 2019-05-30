@@ -15,7 +15,7 @@ defmodule LiveViewForm.Example do
     example
     |> cast(attrs, [:title, :description, :type, :something_else])
     |> validate_required([:title, :description, :type, :something_else])
-    |> validate_length(:title, max: 80)
+    |> validate_length(:title, max: 20)
     |> validate_length(:description, min: 10, max: 500)
     |> validate_inclusion(:type, ["thing_a", "thing_b"])
   end

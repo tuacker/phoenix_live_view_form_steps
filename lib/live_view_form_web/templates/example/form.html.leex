@@ -1,39 +1,58 @@
 <%= form_for @changeset, "#", [phx_change: :validate, phx_submit: :save], fn f -> %>
-  <div>
-    <%= label f, :title %>
-    <%= text_input f, :title %>
-    <%= error_tag f, :title %>
-  </div>
+  <%= if @current_step == 1 do %>
+    <div>
+      <%= label f, :title %>
+      <%= text_input f, :title, autofocus: true %>
+      <%= error_tag f, :title %>
+    </div>
 
-  <div>
-    <%= label f, :description %>
-    <%= text_input f, :description %>
-    <%= error_tag f, :description %>
- </div>
+    <div>
+      <%= label f, :description %>
+      <%= text_input f, :description %>
+      <%= error_tag f, :description %>
+    </div>
+
+  <% else %>
+    <%= hidden_input f, :title %>
+    <%= hidden_input f, :description %>
+  <% end %>
 
 
-  <div>
-    <%= label f, :type %>
+  <%= if @current_step == 2 do %>
+    <div>
+      <%= label f, :type %>
+
+      <%= label do %>
+        <%= radio_button f, :type, "thing_a" %>
+        Thing A
+      <% end %>
+
+      <%= label do %>
+        <%= radio_button f, :type, "thing_b" %>
+        Thing B
+      <% end %>
+
+      <%= error_tag f, :type %>
+   </div>
+  <% else %>
+    <%= hidden_input f, :type %>
+  <% end %>
+
+  <%= if @current_step == 3 do %>
+    <div>
+      <%= label f, :something_else %>
+      <%= text_input f, :something_else, autofocus: true %>
+      <%= error_tag f, :something_else %>
+    </div>
+  <% end %>
 
 
-    <%= label do %>
-      <%= radio_button f, :type, "thing_a" %>
-      Thing A
-    <% end %>
+  <%= if @current_step > 1 do %><button phx-click="prev-step">Back</button><% end %>
 
-    <%= label do %>
-      <%= radio_button f, :type, "thing_b" %>
-      Thing B
-    <% end %>
+  <%= if @current_step == 3 do %>
+    <%= submit "Submit" %>
+  <% else %>
+    <button phx-click="next-step">Continue</button>
+  <% end %>
 
-    <%= error_tag f, :type %>
- </div>
-
-  <div>
-    <%= label f, :something_else %>
-    <%= text_input f, :something_else %>
-    <%= error_tag f, :something_else %>
- </div>
-
- <%= submit "Submit" %>
 <% end %>
