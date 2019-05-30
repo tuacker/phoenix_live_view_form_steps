@@ -53,7 +53,7 @@ config :live_view_form, LiveViewFormWeb.Endpoint,
       ~r"priv/gettext/.*(po)$",
       ~r"lib/live_view_form_web/{live,views}/.*(ex)$",
       ~r"lib/live_view_form_web/templates/.*(eex)$",
-      ~r{lib/my_app_web/live/.*(ex)$}
+      ~r{lib/live_view_form_web/live/.*(ex)$}
     ]
   ]
 
