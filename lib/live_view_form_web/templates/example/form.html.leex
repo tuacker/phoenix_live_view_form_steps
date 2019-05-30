@@ -1,0 +1,39 @@
+<%= form_for @changeset, "#", [phx_change: :validate, phx_submit: :save], fn f -> %>
+  <div>
+    <%= label f, :title %>
+    <%= text_input f, :title %>
+    <%= error_tag f, :title %>
+  </div>
+
+  <div>
+    <%= label f, :description %>
+    <%= text_input f, :description %>
+    <%= error_tag f, :description %>
+ </div>
+
+
+  <div>
+    <%= label f, :type %>
+
+
+    <%= label do %>
+      <%= radio_button f, :type, "thing_a" %>
+      Thing A
+    <% end %>
+
+    <%= label do %>
+      <%= radio_button f, :type, "thing_b" %>
+      Thing B
+    <% end %>
+
+    <%= error_tag f, :type %>
+ </div>
+
+  <div>
+    <%= label f, :something_else %>
+    <%= text_input f, :something_else %>
+    <%= error_tag f, :something_else %>
+ </div>
+
+ <%= submit "Submit" %>
+<% end %>
