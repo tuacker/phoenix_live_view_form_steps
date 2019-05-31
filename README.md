@@ -1,7 +1,9 @@
 # About
-This is just a simple test to see how split up a form/changeset into multiple steps with validations along the way using [Phoenix Live View](https://github.com/phoenixframework/phoenix_live_view/).
+This is just a simple test to see how one would split up a form/changeset into multiple steps – with validations along the way – using [Phoenix Live View](https://github.com/phoenixframework/phoenix_live_view/).
 
-The meat of the story happens in [lib/live_view_form_web/live/example_live.ex](lib/live_view_form_web/live/example_live.ex).
+The meat happens here [lib/live_view_form_web/live/example_live.ex](lib/live_view_form_web/live/example_live.ex).
+
+For a detailed writeup check out the accompanying [blog post](https://www.markusbodner.com/2019/05/31/multi-step-form-using-phoenix-live-view/)
 
 # LiveViewForm
 
